@@ -1,6 +1,9 @@
-﻿namespace Logistics.Dto.Warehouses
+﻿using Logistics.DAL.EntityModels;
+
+namespace Logistics.Dto.Warehouses
 {
-    public class Dock
+    public class Dock : IIdentity
     {
+        public int Id { get; set; }
     }
 }

@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
         public string FullName { get; set; }
-        public string DriverCardNumber { get; set; }        
+        public string DriverCardNumber { get; set; }
     }
 }
