@@ -1,6 +1,6 @@
 ﻿namespace Logistics.Enums.Cargos
 {
-    public enum CargoPlaceType
+    public enum PlaceType
     {
         Grid = 0,
         Trailer = 1,

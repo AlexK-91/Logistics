@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Logistics.Enums.Warehouses;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Logistics.DAL.EntityModels.Warehouses
@@ -16,5 +17,8 @@ namespace Logistics.DAL.EntityModels.Warehouses
 
         [ForeignKey("WarehouseId")]
         public WarehouseEntity Warehouse { get; set; }
+
+        [Required]
+        public DockStatus Status { get; set; }
     }
 }

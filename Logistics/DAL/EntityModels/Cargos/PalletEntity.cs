@@ -16,19 +16,19 @@ namespace Logistics.DAL.EntityModels.Cargos
         [ForeignKey("CargoId")]
         public CargoEntity Cargo { get; set; } 
 
-        public int DockId { get; set; }
+        public int? DockId { get; set; }
 
         [ForeignKey("DockId")]
-        public DockEntity Dock { get; set; }
+        public DockEntity? Dock { get; set; }
 
-        public int CellId { get; set; }
+        public int? CellId { get; set; }
 
         [ForeignKey("CellId")]
-        public CellEntity Cell { get; set; }
+        public CellEntity? Cell { get; set; }
 
-        public int TrailerId { get; set; }
+        public int? TrailerId { get; set; }
 
         [ForeignKey("TrailerId")]
-        public Trailer Trailer { get; set; }
+        public Trailer? Trailer { get; set; }
     }
 }

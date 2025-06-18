@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Logistics.DAL.EntityModels.Customers;
 
 namespace Logistics.DAL.EntityModels.Orders
@@ -11,6 +12,7 @@ namespace Logistics.DAL.EntityModels.Orders
         public int CustomerId { get; set; }
 
         [Required]
+        [ForeignKey("CustomerId")]
         public CustomerEntity Customer { get; set; }
     }
 }

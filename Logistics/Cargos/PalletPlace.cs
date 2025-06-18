@@ -5,6 +5,6 @@ namespace Logistics.Cargos
     public class PalletPlace
     {
         public int PlaceId { get; set; }
-        public CargoPlaceType CargoPlaceType { get; set; }
+        public PlaceType PlaceType { get; set; }
     }
 }
