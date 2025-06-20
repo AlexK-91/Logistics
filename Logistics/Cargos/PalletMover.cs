@@ -1,13 +1,12 @@
-﻿using Logistics.DAL;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Logistics.DAL;
 using Logistics.DAL.EntityModels.Cargos;
 using Logistics.Enums.Cargos;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Linq;
 
 namespace Logistics.Cargos
 {
-    public class PalletMover
+    public class PalletMover : IPalletMover
     {
         private readonly LogisticContext _logisticContext;
 
@@ -44,12 +43,7 @@ namespace Logistics.Cargos
 
         public async Task MovePalletsAsync(List<PalletMovingRequest> movingRequests)
         {
-            CheckMovingRequests(movingRequests);
-
-            foreach (var movingRequest in movingRequests)
-            {
-                CheckMovingParameters(movingRequest);
-            }
+            CheckMovingRequests(movingRequests);            
 
             var palletIds = movingRequests.Select(request => request.PalletId).ToList();
             var pallets = await _logisticContext.Pallets
@@ -129,24 +123,6 @@ namespace Logistics.Cargos
             }
         }
 
-        private void CheckMovingParameters(PalletMovingRequest movingRequest)
-        {
-            if (movingRequest == null)
-            {
-                throw new ArgumentNullException("Moving Request is null");
-            }
-
-            if (movingRequest.PalletId < MINIMUM_POSSIBLE_ID_VALUE)
-            {
-                throw new ArgumentException("Pallet id argument exeption");
-            }
-            
-            if (movingRequest.PalletPlace == null || movingRequest.PalletPlace.PlaceId < MINIMUM_POSSIBLE_ID_VALUE)
-            {
-                throw new ArgumentException("Destination argument exeption");
-            }
-        }
-
         private void CheckMovingRequests(List<PalletMovingRequest> palletMovingRequests)
         {
             if (palletMovingRequests.IsNullOrEmpty())
@@ -160,6 +136,30 @@ namespace Logistics.Cargos
             if (allRequestsDontHaveTheSamePlaceType)
             {
                 throw new ArgumentNullException(nameof(palletMovingRequests), "All pallets have to move in one place type");
+            }
+
+            foreach (var movingRequest in palletMovingRequests)
+            {
+                CheckMovingParameters(movingRequest);
+            }
+        }
+
+
+        private void CheckMovingParameters(PalletMovingRequest movingRequest)
+        {
+            if (movingRequest == null)
+            {
+                throw new ArgumentNullException("Moving Request is null");
+            }
+
+            if (movingRequest.PalletId < MINIMUM_POSSIBLE_ID_VALUE)
+            {
+                throw new ArgumentException("Pallet id argument exeption");
+            }
+
+            if (movingRequest.PalletPlace == null || movingRequest.PalletPlace.PlaceId < MINIMUM_POSSIBLE_ID_VALUE)
+            {
+                throw new ArgumentException("Destination argument exeption");
             }
         }
 

@@ -6,7 +6,5 @@ namespace Logistics.DAL.EntityModels.Customers
     {
         [Key]
         public int Id { get; set; }
-
-
     }
 }

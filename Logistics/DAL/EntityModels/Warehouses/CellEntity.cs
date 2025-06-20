@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Logistics.DAL.EntityModels.Cargos;
 
 namespace Logistics.DAL.EntityModels.Warehouses
 {
@@ -18,5 +19,10 @@ namespace Logistics.DAL.EntityModels.Warehouses
 
         [ForeignKey("GridId")]
         public GridEntity Grid { get; set; }
+
+        public int? PalletId { get; set; }
+
+        [ForeignKey("PalletId")]
+        public PalletEntity? Pallet { get; set; }
     }
 }

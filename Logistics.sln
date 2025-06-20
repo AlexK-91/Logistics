@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logistics", "Logistics\Logi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticsUnitTests", "LogisticsUnitTests\LogisticsUnitTests.csproj", "{CCE66FFE-635E-44A4-A2D7-3E53F0B108FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticWPF", "LogisticWPF\LogisticWPF.csproj", "{F8BD3C63-E8C2-41B0-A594-5A63EB0FD8C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CCE66FFE-635E-44A4-A2D7-3E53F0B108FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCE66FFE-635E-44A4-A2D7-3E53F0B108FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCE66FFE-635E-44A4-A2D7-3E53F0B108FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8BD3C63-E8C2-41B0-A594-5A63EB0FD8C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8BD3C63-E8C2-41B0-A594-5A63EB0FD8C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8BD3C63-E8C2-41B0-A594-5A63EB0FD8C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8BD3C63-E8C2-41B0-A594-5A63EB0FD8C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
